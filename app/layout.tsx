@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   generator: 'Next.js',
 
   openGraph: {
-    title: 'Akhi Ketu Chakma | Developer Portfolio',
+    title: 'Akhi Ketu Chakma | Student ',
     description:
       'Explore my web development projects, robotics work, university journey, research, and technical skills.',
     type: 'website',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Akhi Ketu Chakma | Developer Portfolio',
+    title: 'Akhi Ketu Chakma | Student',
     description:
       'Explore my projects, university notes, research, and technical journey.',
   },

@@ -125,7 +125,7 @@ export default function Hero() {
           </a>
           {/* Phone */}
           <a
-            href="tel:+1234567890"
+            href="tel:+880-1894852404"
             aria-label="Phone"
             className="group relative p-2.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-125 transform-gpu"
           >
