@@ -1,0 +1,294 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║          COMPLETE GUIDE: DOWNLOAD ZIP & RUN IN VS CODE                   ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📥 STEP 1: DOWNLOAD ZIP FILE
+
+1. In v0, click the three dots (⋮) in the top right corner
+2. Select "Download ZIP"
+3. Wait for download to complete
+4. You'll have a file named: "project.zip" or similar
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📂 STEP 2: EXTRACT THE ZIP FILE
+
+Windows:
+1. Right-click on the ZIP file
+2. Select "Extract All..."
+3. Choose your destination folder (Desktop, Documents, etc.)
+4. Click "Extract"
+
+Mac:
+1. Double-click the ZIP file
+2. It automatically extracts
+
+Linux:
+$ unzip project.zip
+$ cd project
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💻 STEP 3: OPEN IN VS CODE
+
+Option A: Using File Menu
+1. Open VS Code
+2. Click "File" → "Open Folder"
+3. Navigate to extracted folder
+4. Click "Select Folder"
+
+Option B: Using Command Line
+$ code /path/to/extracted/portfolio
+
+Option C: Drag and Drop
+1. Open VS Code
+2. Drag the extracted folder into VS Code window
+
+Result: You should see file explorer on the left side
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 STEP 4: INSTALL DEPENDENCIES
+
+In VS Code:
+
+1. Press: Ctrl + ` (backtick)
+   This opens the terminal at the bottom
+
+2. Type this command:
+   pnpm install
+
+   (or if pnpm is not installed)
+   npm install
+
+3. Wait for installation (2-3 minutes)
+   You'll see lots of text scrolling
+
+When complete, you'll see:
+✓ added 200 packages
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 STEP 5: START DEVELOPMENT SERVER
+
+In the same terminal, type:
+
+pnpm dev
+
+(or: npm run dev)
+
+You'll see output like:
+
+  ▲ Next.js 16.0.0
+  - Local:        http://localhost:3000
+
+✓ Ready in 2.3s
+
+This means the server is running!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 STEP 6: OPEN IN BROWSER
+
+1. Open your web browser (Chrome, Firefox, Safari, Edge)
+2. Go to: http://localhost:3000
+3. Your portfolio is now running!
+
+You should see:
+- Your portfolio homepage
+- Navigation menu
+- All sections working
+- No errors in console
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✏️ STEP 7: EDIT & CUSTOMIZE
+
+1. In VS Code, open: app/page.tsx
+2. Find: "Your Name" (around line 50)
+3. Replace with your name
+4. Save: Ctrl+S
+5. Browser automatically refreshes!
+
+Changes appear instantly (Hot Reload)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📱 STEP 8: TEST ON MOBILE
+
+1. In VS Code terminal, make sure pnpm dev is running
+2. Get your local IP address:
+   
+   Windows: ipconfig
+   Mac/Linux: ifconfig
+   
+   Look for: 192.168.x.x or 10.0.x.x
+
+3. On your phone, open browser
+4. Type: http://192.168.x.x:3000
+5. Your portfolio on mobile!
+
+Or use DevTools device simulator:
+1. In browser, press F12
+2. Click device icon (top left)
+3. Toggle device type to mobile
+4. Test responsiveness
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛑 STEP 9: STOP THE SERVER
+
+When you're done:
+
+1. In VS Code terminal, press: Ctrl + C
+2. Terminal shows: ^C
+3. Server stops
+4. Browser may show connection error (this is normal)
+
+To restart: pnpm dev again
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 COMMON WORKFLOWS
+
+Workflow 1: Daily Development
+$ pnpm dev              (Start server)
+→ Edit files
+→ Browser auto-refreshes
+→ Ctrl+C to stop
+
+Workflow 2: Build & Test Production
+$ pnpm build            (Build for production)
+$ pnpm start            (Start production server)
+→ Test production build
+→ Ctrl+C to stop
+
+Workflow 3: Deploy to Production
+$ pnpm build
+$ vercel                (Deploy to Vercel)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ RECOMMENDED VS CODE EXTENSIONS
+
+For better development experience:
+
+1. Prettier - Code Formatter
+   - Auto-formats code
+   - Makes code pretty
+
+2. ESLint
+   - Checks for errors
+   - Shows warnings
+
+3. Tailwind CSS IntelliSense
+   - Autocomplete for Tailwind classes
+   - Shows color previews
+
+4. Thunder Client
+   - Test API endpoints
+   - Like Postman
+
+Install: Click Extensions (Ctrl+Shift+X) → Search → Install
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 TROUBLESHOOTING
+
+Problem: pnpm: command not found
+Solution: npm install -g pnpm
+
+Problem: Port 3000 already in use
+Solution: pnpm dev -- -p 3001
+(Uses port 3001 instead)
+
+Problem: Cannot connect to localhost:3000
+Solution: 
+- Make sure pnpm dev is running
+- Wait 5 seconds after starting
+- Try refreshing browser (F5)
+
+Problem: Changes not showing
+Solution:
+- Save file (Ctrl+S)
+- Wait 2 seconds
+- Refresh browser (F5)
+- Check browser console (F12) for errors
+
+Problem: Lots of TypeScript errors
+Solution:
+- This is normal while developing
+- They won't stop the build
+- Will be caught when building for production
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 IMPORTANT FILES TO KNOW
+
+app/page.tsx (471 lines)
+→ Homepage - Make your changes here
+→ Contains: Hero, Projects, Skills, Contact
+
+app/projects/page.tsx
+→ Projects showcase page
+→ Edit project data here
+
+app/university-notes/page.tsx
+→ University courses page
+→ Edit course data here
+
+app/globals.css
+→ All colors and theme
+→ Edit colors here
+
+app/layout.tsx
+→ Root layout - Don't edit much
+→ Site metadata goes here
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 QUICK REFERENCE
+
+Command              | What It Does
+─────────────────────────────────────────────────
+pnpm install         | Download dependencies
+pnpm dev             | Start development server
+pnpm build           | Build for production
+pnpm start           | Run production build
+pnpm lint            | Check for errors
+npm i -g pnpm        | Install pnpm globally
+ctrl + `             | Open terminal in VS Code
+ctrl + s             | Save file
+ctrl + /             | Comment code
+ctrl + f             | Find text
+f5 or ctrl + shift+r | Hard refresh browser
+f12                  | Open DevTools
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 YOU'RE ALL SET!
+
+Your portfolio is now:
+✓ Downloaded
+✓ Extracted
+✓ Opened in VS Code
+✓ Dependencies installed
+✓ Running locally
+✓ Ready to customize
+
+Next: Edit files, customize content, and deploy!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Questions? Check the other documentation files:
+- BUILD_GUIDE.md - Technical details
+- PORTFOLIO_SETUP.md - Customization guide
+- QUICK_START.txt - Quick reference
+
+Happy coding! 🚀
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
