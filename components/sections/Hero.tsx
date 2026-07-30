@@ -100,7 +100,7 @@ export default function Hero() {
 
           {/* Email */}
           <a
-            href="akhiketu2003@gmail.com"
+            href="mailto:akhiketu2003@gmail.com"
             aria-label="Email"
             className=" group relative p-2.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-125 transform-gpu"
           >
