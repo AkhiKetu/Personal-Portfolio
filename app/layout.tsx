@@ -1,81 +1,103 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import type { ReactNode } from 'react'
 import './globals.css'
 
-// SEO-optimized metadata for personal portfolio
-// Ensure your name and profession in title for better Google search visibility
 export const metadata: Metadata = {
-  title: 'Your Name | Full Stack Developer & Creative Technologist Portfolio',
-  description: 'Explore my portfolio showcasing innovative projects, university notes, and creative solutions. Full stack developer specializing in modern web technologies.',
-  keywords: ['portfolio', 'developer', 'projects', 'full stack', 'web development'],
-  generator: 'v0.app',
-  // Open Graph metadata for better social media sharing
+  title: 'Akhi Ketu Chakma | Student',
+
+  description:
+    'Explore the portfolio of Akhi Ketu Chakma, showcasing web development projects, robotics work, university notes, research, and creative technical solutions.',
+
+  keywords: [
+    'Akhi Ketu Chakma',
+    'portfolio',
+    'student developer',
+    'full stack developer',
+    'web development',
+    'robotics',
+    'projects',
+    'university notes',
+    'research',
+  ],
+
+  authors: [
+    {
+      name: 'Akhi Ketu Chakma',
+    },
+  ],
+
+  creator: 'Akhi Ketu Chakma',
+  generator: 'Next.js',
+
   openGraph: {
-    title: 'Your Name | Developer Portfolio',
-    description: 'Full stack developer showcasing projects and university journey',
+    title: 'Akhi Ketu Chakma | Developer Portfolio',
+    description:
+      'Explore my web development projects, robotics work, university journey, research, and technical skills.',
     type: 'website',
+    siteName: 'Akhi Ketu Chakma Portfolio',
   },
-  // Twitter Card for enhanced social sharing
+
   twitter: {
     card: 'summary_large_image',
-    title: 'Your Name | Developer Portfolio',
-    description: 'Explore my projects and university notes',
-  },
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    title: 'Akhi Ketu Chakma | Developer Portfolio',
+    description:
+      'Explore my projects, university notes, research, and technical journey.',
   },
 }
 
 export const viewport: Viewport = {
   colorScheme: 'light dark',
+
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f5f1e8' },
-    { media: '(prefers-color-scheme: dark)', color: '#1a1a1a' },
+    {
+      media: '(prefers-color-scheme: light)',
+      color: '#f5f1e8',
+    },
+    {
+      media: '(prefers-color-scheme: dark)',
+      color: '#1a1a1a',
+    },
   ],
 }
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: ReactNode
 }>) {
-  // JSON-LD structured data for Google search visibility
-  // Using dangerouslySetInnerHTML to prevent hydration mismatch
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Your Name',
-    url: 'https://yourportfolio.com',
-    jobTitle: 'Full Stack Developer',
-    description: 'Creative technologist and full stack developer',
+    name: 'Akhi Ketu Chakma',
+    jobTitle: 'Student and Full Stack Developer',
+    description:
+      'Student, full stack developer, robotics enthusiast, and creative technologist.',
+    knowsAbout: [
+      'Full Stack Web Development',
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Robotics',
+      'Internet of Things',
+      'Research',
+    ],
   }
 
   return (
-    <html lang="en" className="bg-background scroll-smooth">
+    <html lang="en" className="scroll-smooth bg-background">
       <head>
-        {/* Structured data for better Google search visibility */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
         />
       </head>
-      <body className="antialiased bg-background text-foreground">
+
+      <body className="bg-background text-foreground antialiased">
         {children}
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

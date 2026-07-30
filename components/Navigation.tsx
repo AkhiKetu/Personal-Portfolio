@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { FolderKanban, GraduationCap, Home, Mail, Moon, Sun } from 'lucide-react'
+import { FolderKanban, GraduationCap, Home, Moon, Sun } from 'lucide-react'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -38,7 +38,6 @@ export default function Navigation() {
     { icon: Home, label: 'Home', href: '#home' },
     { icon: GraduationCap, label: 'Education', href: '#education' },
     { icon: FolderKanban, label: 'Projects', href: '#projects' },
-    { icon: Mail, label: 'Contact', href: '#contact' },
     
   ]
 
