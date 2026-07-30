@@ -1,41 +1,49 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import { Mail, Code2, Share2, ExternalLink } from 'lucide-react'
-import Lottie from 'lottie-react'
-import profileAnimation from '@/components/assets/profile-animation.json'
+import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedinIn, FaEnvelope} from "react-icons/fa";
+import { SiResearchgate,SiPeerlist } from "react-icons/si";
+import Lottie from "lottie-react";
+import profileAnimation from "@/components/assets/Cute Tiger.json";
 
 export default function Hero() {
-  const fullName = "Hi, I'm Akhi Ketu Chakma"
-  const [typedName, setTypedName] = useState('')
+  const fullName = "Hi, I'm Akhi Ketu Chakma";
+  const [typedName, setTypedName] = useState("");
 
   useEffect(() => {
-    const isComplete = typedName.length === fullName.length
+    const isComplete = typedName.length === fullName.length;
     const timeout = setTimeout(
       () => {
-        setTypedName(isComplete ? '' : fullName.slice(0, typedName.length + 1))
+        setTypedName(isComplete ? "" : fullName.slice(0, typedName.length + 1));
       },
       isComplete ? 3000 : 100,
-    )
+    );
 
-    return () => clearTimeout(timeout)
-  }, [typedName, fullName])
+    return () => clearTimeout(timeout);
+  }, [typedName, fullName]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 py-20">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center px-4 py-20"
+    >
       <div className="max-w-2xl w-full text-center space-y-8">
-        {/* Avatar/Profile Image */}
+        {/* Transparent Tiger Profile Animation */}
         <div className="flex justify-center">
-          <div className="h-40 w-40 overflow-hidden rounded-full md:h-52 md:w-52">
-            <div className="h-full w-full overflow-hidden rounded-full bg-background">
-              <Lottie
-                animationData={profileAnimation}
-                loop
-                autoplay
-                aria-label="Animated profile illustration"
-                className="h-full w-full scale-110"
-              />
-            </div>
+          <div className="h-44 w-44 bg-transparent md:h-56 md:w-56">
+            <Lottie
+              animationData={profileAnimation}
+              loop
+              autoplay
+              aria-label="Animated tiger profile illustration"
+              className="h-full w-full select-none bg-transparent pointer-events-none"
+              rendererSettings={{
+                preserveAspectRatio: "xMidYMid meet",
+              }}
+              style={{
+                backgroundColor: "transparent",
+              }}
+            />
           </div>
         </div>
 
@@ -54,46 +62,63 @@ export default function Hero() {
 
         {/* Bio */}
         <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
-          Trying to build a better web experience with modern technologies and best practices. Passionate about creating intuitive and engaging user interfaces.
+          Trying to build a better web experience with modern technologies and
+          best practices. Passionate about creating intuitive and engaging user
+          interfaces.
         </p>
 
-        {/* Email with Copy */}
-        <div className="flex justify-center">
-          <button
-            onClick={() => {
-              navigator.clipboard.writeText('your.email@example.com')
-              alert('Email copied!')
-            }}
-            className="flex items-center gap-2 px-4 py-2 bg-muted hover:bg-accent/20 rounded-lg transition-all duration-300"
-          >
-            <Mail size={18} />
-            <span className="text-sm font-medium">your.email@example.com</span>
-            <ExternalLink size={14} className="text-muted-foreground" />
-          </button>
-        </div>
-
         {/* Social Links */}
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-1.5">
+          {/* GitHub */}
           <a
-            href="#"
-            className="p-3 rounded-lg bg-muted hover:bg-accent/20 transition-all duration-300 hover:scale-110"
+            href="https://github.com/your-username"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="GitHub"
+            className="p-2.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-125 transform-gpu"
           >
-            <Code2 size={20} />
+            <FaGithub size={25} />
           </a>
+
+          {/* LinkedIn */}
           <a
-            href="#"
-            className="p-3 rounded-lg bg-muted hover:bg-accent/20 transition-all duration-300 hover:scale-110"
+            href="https://www.linkedin.com/in/your-username"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
+            className="p-2.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-125 transform-gpu"
           >
-            <Share2 size={20} />
+            <FaLinkedinIn size={25} />
           </a>
+
+          {/* Email */}
           <a
-            href="#"
-            className="p-3 rounded-lg bg-muted hover:bg-accent/20 transition-all duration-300 hover:scale-110"
+            href="mailto:your.email@example.com"
             aria-label="Email"
+            className="p-2.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-125 transform-gpu"
           >
-            <Mail size={20} />
+            <FaEnvelope size={25} />
+          </a>
+
+          {/* ResearchGate */}
+          <a
+            href="https://www.researchgate.net/profile/Your-Name"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ResearchGate"
+            className="p-2.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-125 transform-gpu"
+          >
+            <SiResearchgate size={25} />
+          </a>
+          {/* Peerlist */}
+          <a
+            href="https://peerlist.io/your-username"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Peerlist"
+            className=" p-2.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-125 transform-gpu"
+          >
+            <SiPeerlist size={22} />
           </a>
         </div>
 
@@ -103,5 +128,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
