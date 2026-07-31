@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'motion/react'
 import type { IconType } from 'react-icons'
 import { FaGithub } from 'react-icons/fa'
@@ -68,8 +69,10 @@ const projects: Project[] = [
         color: 'text-violet-500',
       },
     ],
-    github: 'https://github.com/your-username/ecommerce-platform',
-    preview: 'https://your-ecommerce-project.vercel.app',
+    github:
+      'https://github.com/your-username/ecommerce-platform',
+    preview:
+      'https://your-ecommerce-project.vercel.app',
   },
   {
     id: 2,
@@ -99,8 +102,10 @@ const projects: Project[] = [
         color: 'text-cyan-500',
       },
     ],
-    github: 'https://github.com/your-username/ai-content-generator',
-    preview: 'https://your-ai-project.vercel.app',
+    github:
+      'https://github.com/your-username/ai-content-generator',
+    preview:
+      'https://your-ai-project.vercel.app',
   },
   {
     id: 3,
@@ -130,34 +135,39 @@ const projects: Project[] = [
         color: 'text-blue-500',
       },
     ],
-    github: 'https://github.com/your-username/analytics-dashboard',
-    preview: 'https://your-dashboard-project.vercel.app',
+    github:
+      'https://github.com/your-username/analytics-dashboard',
+    preview:
+      'https://your-dashboard-project.vercel.app',
   },
 ]
 
 export default function Projects() {
-  const [activeProjectId, setActiveProjectId] = useState<number | null>(
-    null,
-  )
+  const [activeProjectId, setActiveProjectId] = useState<
+    number | null
+  >(null)
+
+  // Only the first two projects appear on the homepage.
+  const homepageProjects = projects.slice(0, 2)
 
   return (
     <section
       id="projects"
       className="px-4 pb-12 pt-5 md:pb-14 md:pt-6"
     >
-      {/* Same alignment as Education and Skills */}
       <div className="mx-auto w-full max-w-3xl">
-        {/* Section Header */}
+        {/* Section Heading */}
         <div className="mb-6">
-          <h2 className="text-3xl font-extrabold uppercase tracking-tight md:text-3xl">
+          <h2 className="text-3xl font-extrabold uppercase tracking-tight">
             Projects
           </h2>
         </div>
 
-        {/* Projects Grid */}
-        <div className="relative grid grid-cols-1 gap-5 px-1 py-3 md:grid-cols-2">
-          {projects.map((project) => {
-            const isActive = activeProjectId === project.id
+        {/* Project Cards */}
+        <div className="relative mx-auto grid w-full max-w-2xl grid-cols-1 gap-4 px-1 py-3 md:grid-cols-2">
+          {homepageProjects.map((project) => {
+            const isActive =
+              activeProjectId === project.id
 
             const anotherProjectIsActive =
               activeProjectId !== null && !isActive
@@ -169,11 +179,15 @@ export default function Projects() {
                 onHoverStart={() =>
                   setActiveProjectId(project.id)
                 }
-                onHoverEnd={() => setActiveProjectId(null)}
+                onHoverEnd={() =>
+                  setActiveProjectId(null)
+                }
                 onFocus={() =>
                   setActiveProjectId(project.id)
                 }
-                onBlur={() => setActiveProjectId(null)}
+                onBlur={() =>
+                  setActiveProjectId(null)
+                }
                 animate={{
                   scale: isActive
                     ? 1.05
@@ -181,7 +195,9 @@ export default function Projects() {
                       ? 0.97
                       : 1,
                   y: isActive ? -8 : 0,
-                  opacity: anotherProjectIsActive ? 0.35 : 1,
+                  opacity: anotherProjectIsActive
+                    ? 0.35
+                    : 1,
                   filter: anotherProjectIsActive
                     ? 'blur(3px)'
                     : 'blur(0px)',
@@ -212,7 +228,9 @@ export default function Projects() {
                 className={`
                   group
                   relative
-                  hover: cursor-pointer
+                  flex
+                  cursor-pointer
+                  flex-col
                   overflow-hidden
                   rounded-lg
                   border
@@ -236,13 +254,13 @@ export default function Projects() {
                     src={project.image}
                     alt={`${project.title} screenshot`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, 320px"
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />
                 </div>
 
                 {/* Project Information */}
-                <div className="flex flex-col p-4">
+                <div className="flex flex-1 flex-col p-4">
                   <h3 className="text-center text-lg font-bold transition-colors duration-200 group-hover:text-primary">
                     {project.title}
                   </h3>
@@ -292,12 +310,15 @@ export default function Projects() {
                   </div>
 
                   {/* Project Links */}
-                  <div className="mt-4 flex items-center gap-2">
+                  <div className="mt-auto flex items-center gap-2 pt-4">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-md border border-border bg-muted px-2.5 py-1.5 text-xs font-semibold transition-[transform,border-color,background-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/10"
+                      onClick={(event) =>
+                        event.stopPropagation()
+                      }
+                      className="inline-flex cursor-pointer items-center gap-1.5 rounded-md border border-border bg-muted px-2.5 py-1.5 text-xs font-semibold transition-[transform,border-color,background-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/10"
                     >
                       <FaGithub size={14} />
                       GitHub
@@ -307,7 +328,10 @@ export default function Projects() {
                       href={project.preview}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-md border border-border bg-muted px-2.5 py-1.5 text-xs font-semibold transition-[transform,border-color,background-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/10"
+                      onClick={(event) =>
+                        event.stopPropagation()
+                      }
+                      className="inline-flex cursor-pointer items-center gap-1.5 rounded-md border border-border bg-muted px-2.5 py-1.5 text-xs font-semibold transition-[transform,border-color,background-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/10"
                     >
                       <ExternalLink size={14} />
                       Browser
@@ -317,6 +341,26 @@ export default function Projects() {
               </motion.article>
             )
           })}
+        </div>
+
+        {/* One button below all homepage cards */}
+        <div className="mt-8 flex justify-center">
+          <motion.div
+            whileHover={{
+              y: -3,
+              scale: 1.03,
+            }}
+            whileTap={{
+              scale: 0.97,
+            }}
+          >
+            <Link
+              href="/projects"
+              className="inline-flex cursor-pointer items-center justify-center rounded-md border border-border bg-card px-5 py-2.5 text-sm font-semibold shadow-sm transition-[border-color,background-color,box-shadow] duration-200 ease-out hover:border-primary/60 hover:bg-primary/10 hover:shadow-lg"
+            >
+              Show All Projects
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
