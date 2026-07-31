@@ -49,7 +49,8 @@ export default function Hero() {
         </div>
 
         {/* Name and Title */}
-        <div className="space-y-2">
+        <div className="space-y-5">
+          <div>
           <h1
             aria-label={fullName}
             className="min-h-[1.2em] text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
@@ -66,6 +67,8 @@ export default function Hero() {
           Trying to build a better web experience with modern technologies and
           best practices.
         </p>
+      </div>
+  
 
         {/* Social Links */}
         <div className="flex justify-center gap-1.5">
@@ -150,7 +153,7 @@ export default function Hero() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="pt-8 animate-bounce">
+        <div className= "pt-20 animate-bounce" >
           <p className="text-lg text-muted-foreground">Scroll to explore</p>
         </div>
       </div>
