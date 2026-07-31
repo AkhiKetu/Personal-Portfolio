@@ -21,6 +21,7 @@ import Link from 'next/link'
 import { ArrowLeft, Code2, ExternalLink, Star, Search, Filter } from 'lucide-react'
 import { useState, useMemo } from 'react'
 import { Button } from '@/components/ui/button'
+import {motion} from 'motion/react'
 
 export default function ProjectsPage() {
   // State for search and filtering
