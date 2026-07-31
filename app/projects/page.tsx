@@ -3,143 +3,9 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'motion/react'
-import type { IconType } from 'react-icons'
 import { FaGithub } from 'react-icons/fa'
-import {
-  SiFirebase,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiPostgresql,
-  SiReact,
-  SiStripe,
-  SiTailwindcss,
-  SiTypescript,
-} from 'react-icons/si'
 import { ExternalLink } from 'lucide-react'
-
-type Technology = {
-  name: string
-  icon: IconType
-  color: string
-}
-
-type Project = {
-  id: number
-  title: string
-  image: string
-  description: string
-  features: string[]
-  technologies: Technology[]
-  github: string
-  preview: string
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: 'E-Commerce Platform',
-    image: '/projects/ecommerce-platform.png',
-    description:
-      'A full-stack e-commerce platform with product management, authentication, inventory tracking, and secure payment integration.',
-    features: [
-      'Responsive product browsing and search',
-      'Secure user authentication',
-      'Stripe payment integration',
-    ],
-    technologies: [
-      {
-        name: 'Next.js',
-        icon: SiNextdotjs,
-        color: 'text-foreground',
-      },
-      {
-        name: 'TypeScript',
-        icon: SiTypescript,
-        color: 'text-blue-500',
-      },
-      {
-        name: 'PostgreSQL',
-        icon: SiPostgresql,
-        color: 'text-blue-600 dark:text-blue-400',
-      },
-      {
-        name: 'Stripe',
-        icon: SiStripe,
-        color: 'text-violet-500',
-      },
-    ],
-    github:
-      'https://github.com/your-username/ecommerce-platform',
-    preview:
-      'https://your-ecommerce-project.vercel.app',
-  },
-  {
-    id: 2,
-    title: 'AI Content Generator',
-    image: '/projects/ai-content-generator.png',
-    description:
-      'An AI-powered application for generating useful content through a clean interface and real-time AI responses.',
-    features: [
-      'AI-generated content using an API',
-      'Responsive and user-friendly interface',
-      'Real-time loading and response handling',
-    ],
-    technologies: [
-      {
-        name: 'React',
-        icon: SiReact,
-        color: 'text-cyan-500',
-      },
-      {
-        name: 'Node.js',
-        icon: SiNodedotjs,
-        color: 'text-green-600',
-      },
-      {
-        name: 'Tailwind CSS',
-        icon: SiTailwindcss,
-        color: 'text-cyan-500',
-      },
-    ],
-    github:
-      'https://github.com/your-username/ai-content-generator',
-    preview:
-      'https://your-ai-project.vercel.app',
-  },
-  {
-    id: 3,
-    title: 'Analytics Dashboard',
-    image: '/projects/analytics-dashboard.png',
-    description:
-      'An interactive analytics dashboard for presenting important information through charts, statistics, and filtering tools.',
-    features: [
-      'Interactive charts and statistics',
-      'Advanced filtering capabilities',
-      'Responsive dashboard layout',
-    ],
-    technologies: [
-      {
-        name: 'React',
-        icon: SiReact,
-        color: 'text-cyan-500',
-      },
-      {
-        name: 'Firebase',
-        icon: SiFirebase,
-        color: 'text-yellow-500',
-      },
-      {
-        name: 'TypeScript',
-        icon: SiTypescript,
-        color: 'text-blue-500',
-      },
-    ],
-    github:
-      'https://github.com/your-username/analytics-dashboard',
-    preview:
-      'https://your-dashboard-project.vercel.app',
-  },
-]
+import { projects } from '@/app/data/project'
 
 export default function ProjectsPage() {
   const [activeProjectId, setActiveProjectId] = useState<
@@ -216,10 +82,13 @@ export default function ProjectsPage() {
                     : anotherProjectIsActive
                       ? 0.98
                       : 1,
+
                   y: isActive ? -7 : 0,
+
                   opacity: anotherProjectIsActive
                     ? 0.35
                     : 1,
+
                   filter: anotherProjectIsActive
                     ? 'blur(3px)'
                     : 'blur(0px)',
@@ -230,15 +99,18 @@ export default function ProjectsPage() {
                     stiffness: 280,
                     damping: 24,
                   },
+
                   y: {
                     type: 'spring',
                     stiffness: 280,
                     damping: 24,
                   },
+
                   opacity: {
                     duration: 0.2,
                     ease: 'easeOut',
                   },
+
                   filter: {
                     duration: 0.2,
                     ease: 'easeOut',
@@ -276,7 +148,8 @@ export default function ProjectsPage() {
                     src={project.image}
                     alt={`${project.title} screenshot`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority={project.id <= 2}
+                    sizes="(max-width: 768px) 100vw, 320px"
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />
                 </div>
@@ -291,7 +164,7 @@ export default function ProjectsPage() {
                     {project.description}
                   </p>
 
-                  {/* Features */}
+                  {/* Project Features */}
                   <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
                     {project.features.map((feature) => (
                       <li
@@ -311,8 +184,7 @@ export default function ProjectsPage() {
                   <div className="mt-4 flex flex-wrap items-center gap-2">
                     {project.technologies.map(
                       (technology) => {
-                        const Icon =
-                          technology.icon
+                        const Icon = technology.icon
 
                         return (
                           <div
