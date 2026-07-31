@@ -47,7 +47,7 @@ export default function Projects() {
               className="group bg-card rounded-lg border border-border hover:border-primary transition-all duration-300 overflow-hidden hover:shadow-lg hover:-translate-y-1"
             >
               {/* Project Image Placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
+              <div className="aspect-video bg-linear-to-br from-primary/10 to-accent/10 flex items-center justify-center">
                 <Code2 size={40} className="text-muted-foreground/30" />
               </div>
 
