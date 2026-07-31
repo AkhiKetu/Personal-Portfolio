@@ -28,7 +28,7 @@ export const projects: Project[] = [
   {
     id: 1,
     title: 'Krishi Rover',
-    image: '/projects/krishi-rover-website.png',
+    image: '/projects/krishi-Rover-Website.png',
     description:
       'An autonomous agricultural rover website for soil monitoring, obstacle detection, IoT supervision, and smart irrigation.',
     features: [
@@ -61,7 +61,7 @@ export const projects: Project[] = [
   {
     id: 2,
     title: 'VoiceScribe AI',
-    image: '/projects/voice-scribe-tool.png',
+    image: '/projects/Voice-Scribe-Tool.png',
     description:
       'A speech-to-text application for file transcription, recording, and live speech recognition.',
     features: [
