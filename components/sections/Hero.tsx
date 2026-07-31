@@ -112,7 +112,7 @@ export default function Hero() {
 
           {/* ResearchGate */}
           <a
-            href="researchgate.net/profile/Akhi-Chakma?ev=hdr_xprf"
+            href="https://www.researchgate.net/profile/Akhi-Chakma"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="ResearchGate"
