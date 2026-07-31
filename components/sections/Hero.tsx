@@ -153,7 +153,7 @@ export default function Hero() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className= "pt-20 animate-bounce" >
+        <div className= "pt-15 animate-bounce" >
           <p className="text-lg text-muted-foreground">Scroll to explore</p>
         </div>
       </div>

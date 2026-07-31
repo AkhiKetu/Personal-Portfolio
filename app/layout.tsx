@@ -1,11 +1,13 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Geist } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({
+const lato = Lato({
   subsets: ["latin"],
+  weight: ['400', '700', '900'],
+   style: ['normal', 'italic'],
   display: "swap",
 });
 
@@ -93,7 +95,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geist.className} scroll-smooth bg-background`}
+      className={`${lato.className} scroll-smooth bg-background`}
     >
       <head>
         <script
