@@ -1,6 +1,22 @@
-import Link from 'next/link'
+'use client'
+
+import { usePathname } from 'next/navigation'
 
 export default function Footer() {
+  const pathname = usePathname()
+
+  const handleContactClick = () => {
+    if (pathname !== '/') {
+      window.location.href = '/#home'
+      return
+    }
+
+    document.getElementById('home')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+
   return (
     <footer className="px-4 py-10">
       <div className="mx-auto w-full max-w-3xl">
@@ -13,12 +29,13 @@ export default function Footer() {
 
           <span>•</span>
 
-          <Link
-            href="/#home"
-            className="font-medium text-primary transition-colors duration-200 hover:text-primary/70 hover:cursor-pointer"
+          <button
+            type="button"
+            onClick={handleContactClick}
+            className="cursor-pointer font-medium text-primary transition-colors duration-200 hover:text-primary/70"
           >
             Want to contact?
-          </Link>
+          </button>
         </div>
       </div>
     </footer>
