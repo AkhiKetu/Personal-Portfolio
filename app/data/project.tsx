@@ -12,6 +12,7 @@ import {
   SiPhp,
   SiFlask,
   SiPython,
+  SiSupabase,
 } from "react-icons/si";
 
 export type Technology = {
@@ -233,5 +234,47 @@ export const projects: Project[] = [
 
       note: "Keep app.py, hybrid_detector_model_confirm.py, train_data.jsonl, and Modelfile in the same project folder. Ollama provides AI confirmation; if it is unavailable, the application code falls back to the dataset label.",
     },
+  },
+
+  {
+    id: 5, // use your next unused id
+    title: "Creative Cable & Network",
+    image: "/projects/ISP Project.png",
+
+    description:
+      "A full-stack ISP management platform for managing customers, internet connections, billing, payments, analytics, and network operations.",
+
+    features: [
+      "Customer and internet connection management",
+      "Monthly billing and payment tracking",
+      "Admin dashboard with analytics and connection status",
+    ],
+
+    technologies: [
+      {
+        name: "Next.js",
+        icon: SiNextdotjs,
+        color: "text-foreground",
+      },
+      {
+        name: "TypeScript",
+        icon: SiTypescript,
+        color: "text-blue-500",
+      },
+      {
+        name: "Supabase",
+        icon: SiSupabase,
+        color: "text-emerald-500",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: SiTailwindcss,
+        color: "text-cyan-500",
+      },
+    ],
+
+    github: "https://github.com/AkhiKetu/network-services",
+
+    preview: "https://ccnetworks.vercel.app/",
   },
 ];
