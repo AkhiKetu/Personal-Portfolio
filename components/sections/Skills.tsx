@@ -1,12 +1,9 @@
-'use client'
+"use client";
 
-import type { IconType } from 'react-icons'
-import { FaJava } from 'react-icons/fa'
-import { MdEditNote } from 'react-icons/md'
-import {
-  PiMicrosoftPowerpointLogo,
-  PiMicrosoftWordLogo,
-} from 'react-icons/pi'
+import type { IconType } from "react-icons";
+import { FaJava } from "react-icons/fa";
+import { MdEditNote } from "react-icons/md";
+import { PiMicrosoftPowerpointLogo, PiMicrosoftWordLogo } from "react-icons/pi";
 import {
   SiArduino,
   SiDocker,
@@ -21,176 +18,167 @@ import {
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
-  SiPostman,
   SiPython,
   SiReact,
   SiTailwindcss,
   SiTypescript,
   SiVercel,
-} from 'react-icons/si'
-import { TbSql } from 'react-icons/tb'
-import { VscCode } from 'react-icons/vsc'
+} from "react-icons/si";
+import { TbSql } from "react-icons/tb";
+import { VscCode } from "react-icons/vsc";
 
 type Skill = {
-  name: string
-  icon: IconType
-  color: string
-}
+  name: string;
+  icon: IconType;
+  color: string;
+};
 
 type SkillCategory = {
-  title: string
-  skills: Skill[]
-}
+  title: string;
+  skills: Skill[];
+};
 
 const skillCategories: SkillCategory[] = [
   {
-    title: 'Development',
+    title: "Development",
     skills: [
       {
-        name: 'JavaScript',
+        name: "JavaScript",
         icon: SiJavascript,
-        color: 'text-yellow-500',
+        color: "text-yellow-500",
       },
       {
-        name: 'TypeScript',
+        name: "TypeScript",
         icon: SiTypescript,
-        color: 'text-blue-500',
+        color: "text-blue-500",
       },
       {
-        name: 'Python',
+        name: "Python",
         icon: SiPython,
-        color: 'text-blue-500',
+        color: "text-blue-500",
       },
       {
-        name: 'Java',
+        name: "Java",
         icon: FaJava,
-        color: 'text-orange-600',
+        color: "text-orange-600",
       },
       {
-        name: 'React',
+        name: "React",
         icon: SiReact,
-        color: 'text-cyan-500',
+        color: "text-cyan-500",
       },
       {
-        name: 'Next.js',
+        name: "Next.js",
         icon: SiNextdotjs,
-        color: 'text-foreground',
+        color: "text-foreground",
       },
       {
-        name: 'Node.js',
+        name: "Node.js",
         icon: SiNodedotjs,
-        color: 'text-green-600',
+        color: "text-green-600",
       },
       {
-        name: 'Express',
+        name: "Express",
         icon: SiExpress,
-        color: 'text-foreground',
+        color: "text-foreground",
       },
       {
-        name: 'PostgreSQL',
+        name: "PostgreSQL",
         icon: SiPostgresql,
-        color: 'text-blue-600 dark:text-blue-400',
+        color: "text-blue-600 dark:text-blue-400",
       },
       {
-        name: 'SQL',
+        name: "SQL",
         icon: TbSql,
-        color: 'text-blue-500',
+        color: "text-blue-500",
       },
       {
-        name: 'Tailwind CSS',
+        name: "Tailwind CSS",
         icon: SiTailwindcss,
-        color: 'text-cyan-500',
+        color: "text-cyan-500",
       },
     ],
   },
   {
-    title: 'Tools & Platforms',
+    title: "Tools & Platforms",
     skills: [
       {
-        name: 'Git',
+        name: "Git",
         icon: SiGit,
-        color: 'text-orange-600',
+        color: "text-orange-600",
       },
       {
-        name: 'GitHub',
+        name: "GitHub",
         icon: SiGithub,
-        color: 'text-foreground',
+        color: "text-foreground",
       },
       {
-        name: 'VS Code',
+        name: "VS Code",
         icon: VscCode,
-        color: 'text-blue-500',
+        color: "text-blue-500",
       },
       {
-        name: 'Docker',
+        name: "Docker",
         icon: SiDocker,
-        color: 'text-blue-500',
+        color: "text-blue-500",
       },
       {
-        name: 'Vercel',
+        name: "Vercel",
         icon: SiVercel,
-        color: 'text-foreground',
+        color: "text-foreground",
       },
       {
-        name: 'Netlify',
+        name: "Netlify",
         icon: SiNetlify,
-        color: 'text-teal-500',
+        color: "text-teal-500",
       },
       {
-        name: 'Postman',
-        icon: SiPostman,
-        color: 'text-orange-500',
-      },
-      {
-        name: 'Arduino IDE',
+        name: "Arduino IDE",
         icon: SiArduino,
-        color: 'text-teal-500',
+        color: "text-teal-500",
       },
     ],
   },
   {
-    title: 'Productivity & Collaboration',
+    title: "Productivity & Collaboration",
     skills: [
       {
-        name: 'Google Sheets',
+        name: "Google Sheets",
         icon: SiGooglesheets,
-        color: 'text-green-600',
+        color: "text-green-600",
       },
       {
-        name: 'Google Slides',
+        name: "Google Slides",
         icon: SiGoogleslides,
-        color: 'text-yellow-500',
+        color: "text-yellow-500",
       },
       {
-        name: 'PowerPoint',
+        name: "PowerPoint",
         icon: PiMicrosoftPowerpointLogo,
-        color: 'text-orange-600',
+        color: "text-orange-600",
       },
       {
-        name: 'Google Docs',
+        name: "Google Docs",
         icon: SiGoogledocs,
-        color: 'text-blue-500',
+        color: "text-blue-500",
       },
       {
-        name: 'Microsoft Word',
+        name: "Microsoft Word",
         icon: PiMicrosoftWordLogo,
-        color: 'text-blue-600',
+        color: "text-blue-600",
       },
       {
-        name: 'Writing Skills',
+        name: "Writing Skills",
         icon: MdEditNote,
-        color: 'text-purple-500',
+        color: "text-purple-500",
       },
     ],
   },
-]
+];
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="px-4 pb-10 pt-3 md:pb-12 md:pt-4"
-    >
+    <section id="skills" className="px-4 pb-10 pt-3 md:pb-12 md:pt-4">
       <div className="mx-auto max-w-3xl">
         {/* Section Header */}
         <div className="mb-5">
@@ -213,7 +201,7 @@ export default function Skills() {
 
               <div className="flex flex-wrap gap-1.5">
                 {category.skills.map((skill) => {
-                  const Icon = skill.icon
+                  const Icon = skill.icon;
 
                   return (
                     <div
@@ -257,7 +245,7 @@ export default function Skills() {
 
                       <span>{skill.name}</span>
                     </div>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -265,5 +253,5 @@ export default function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }
